@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #19A0A4;
+}
+
+main{
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+}
+
+.container{
+    background-color: #BCC5CA;
+    height: 100vh;
+    width: 94vw;
+}
+
+.resposta-ai{
+    width: 76vw;
+    height: 70vh;
+    background-color: #9CA4A9;
+    margin-left: 160px;
+    margin-top: 30px;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    margin-top: 50px;
+    width: 800px;
+    height: 80px;
+    border-radius: 20px;
+}
+
+::placeholder{
+    font-size: medium;
+   text-align: center;
+}

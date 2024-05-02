@@ -1,16 +1,38 @@
-'use strict'
-
 const button = document.getElementById('login')
 
-function validaLogin() {
-    const email = document.getElementById('nome')
-    const senha = document.getElementById('senha')
 
-    console.log(senha.value, email.value)
+const validarLogin = async () => {
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
 
-    if(email.value == 'bianca' && senha.value == '1234'){
-        window.location.href = '../pages/home.html'
-    }else{
-        alert('e-mail e/ou senha incorretos!')
+    const urlLogin = 'https://back-login.vercel.app/usuarios'
+
+    const listUsers = await fetch(urlLogin)
+    
+    const objUsers = await listUsers.json()
+
+    if (email == '' || password == ''){
+        alert('Por Favor Preencha todos os Campos !!')
+    } else {
+
+        let validaUser = false
+
+        objUsers.forEach(user => {
+        
+            if(user.email == email && user.senha == password){
+                validaUser = true
+                window.location.href = '../pages/home.html'
+            }
+        });
+
+        if (!validaUser){
+            alert('Por favor verifique o email e senha !!')
+        }
+
     }
-}button.addEventListener('click', validaLogin)
+
+}
+
+button.addEventListener('click', () => {
+    validarLogin()
+})
